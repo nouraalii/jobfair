@@ -1,0 +1,52 @@
+<section class="mb-3">
+    <div class="max-w-5xl mx-auto p-6 bg-white rounded-lg border mt-6 flex flex-col md:flex-row gap-8">
+  
+  <!-- Product Image -->
+  <div class="flex-shrink-0 w-full md:w-1/2">
+    <img [src]="product.image" alt="{{ product.title }}" class="w-full h-[400px] object-cover rounded-lg" />
+  </div>
+
+  <!-- Product Details -->
+  <div class="flex-1 flex flex-col">
+    <h1 class="text-2xl font-bold mb-2">{{ product.title }}</h1>
+    <p class="text-lg font-semibold text-gray-700 mb-4">${{ product.price }}</p>
+
+    <!-- Features -->
+    <ul class="text-sm text-gray-600 list-disc list-inside mb-4">
+      <li *ngFor="let feature of features">{{ feature }}</li>
+    </ul>
+
+    <!-- Description -->
+    <p class="text-gray-700 text-sm mb-4">{{ product.description }}</p>
+
+    <!-- Product Code -->
+    <p class="text-xs font-semibold text-gray-500 mb-6">Product Code: {{ productCode }}</p>
+
+    <!-- Sizes -->
+    <div class="flex justify-between items-center mb-4">
+      <div class="flex gap-2">
+        <span 
+          *ngFor="let size of sizes"
+          (click)="selectSize(size)"
+          [class.bg-gray-800]="selectedSize === size"
+          [class.text-white]="selectedSize === size"
+          class="cursor-pointer px-3 py-1 border rounded-md text-sm hover:bg-gray-200">
+          {{ size }}
+        </span>
+      </div>
+      <button class="text-xs font-semibold bg-gray-300 px-3 py-1 rounded-md">SIZE CHART</button>
+    </div>
+
+    <!-- Quantity & Add to Cart -->
+    <div class="flex items-center gap-4 mt-4">
+      <div class="flex items-center border rounded-md overflow-hidden">
+        <button (click)="decreaseQty()" class="px-3 py-1 bg-gray-300 hover:bg-gray-400">-</button>
+        <span class="px-4">{{ quantity }}</span>
+        <button (click)="increaseQty()" class="px-3 py-1 bg-gray-300 hover:bg-gray-400">+</button>
+      </div>
+      <button class="flex-1 bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-700">ADD TO CART</button>
+    </div>
+  </div>
+</div>
+
+</section>

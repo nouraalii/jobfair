@@ -1,0 +1,66 @@
+<div *ngIf="errorMessage" class="text-center text-4xl text-red-600 font-bold my-12">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="successMessage" 
+     class="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-50">
+  {{ successMessage }}
+</div>
+
+
+<div *ngIf="!errorMessage">
+  <section class="mx-auto px-4 container">
+    <div class="py-10 text-center">
+      
+    <div class="relative">
+    <select 
+      [(ngModel)]="sortOption" 
+      (change)="onSortChange()" 
+      class="appearance-none bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition">
+      <option value="">Sort by</option>
+      <option value="priceAsc"> Price: Low → High</option>
+      <option value="priceDesc"> Price: High → Low</option>
+      <option value="nameAsc"> <i class="fa-solid fa-arrow-down-a-z"></i> Name: A → Z</option>
+      <option value="nameDesc"> Name: Z → A</option>
+    </select>
+    <!-- Custom arrow -->
+    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </div>
+      
+      <h2 class="text-3xl font-bold mb-6 mt-8">OUR PRODUCTS</h2>
+
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl mx-auto px-4 cursor-pointer">
+  <div *ngFor="let product of filteredProducts"
+       class="border rounded-lg overflow-hidden relative flex flex-col justify-between">
+
+    <div class="relative" [routerLink]="['/products-details', product.id]">
+      <img [src]="product.image" alt="{{product.title}}" class="w-full h-48 object-cover" />
+      <div class="absolute top-2 right-2 bg-white text-gray-800 font-bold px-3 py-1 rounded-full shadow-md">
+        ${{ product.price }}
+      </div>
+    </div>
+
+    <div class="p-4 text-left flex flex-col flex-grow">
+      <h3 class="font-semibold text-lg mb-1">{{ product.title }}</h3>
+      <p class="text-gray-600 text-sm mb-4">{{ product.category }}</p>
+
+      <div class="mt-auto">
+        <button (click)="addToCart(product, $event)"
+                class="w-full px-6 py-2 bg-gray-800 text-white rounded-full font-semibold hover:bg-blue-700 transition">
+           Add to Cart
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</div>
+</section>
+</div>

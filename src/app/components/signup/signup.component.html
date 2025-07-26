@@ -1,0 +1,47 @@
+<p *ngIf="successMessage" class="text-green-600 mt-3 text-center">{{ successMessage }}</p>
+<p *ngIf="errorMessage" class="text-red-600 mt-3 text-center">{{ errorMessage }}</p>
+
+<div class="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
+  
+  <!-- Top Hero Section -->
+  <div class="w-full max-w-lg bg-white rounded-lg shadow-lg overflow-hidden">
+    <div class="h-48 bg-cover bg-center" 
+         style="background-image: url('../../../assets/images/tims-clothing1.png')">
+      <div class="h-full w-full bg-black bg-opacity-30 flex items-center justify-center">
+        <h1 class="text-white text-3xl font-bold">Lorem Ipsum</h1>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="p-6">
+      <h2 class="text-2xl font-bold text-center mb-4">SIGN UP</h2>
+
+      <form (ngSubmit)="onSubmit()" class="space-y-4">
+        <input type="text" [(ngModel)]="user.username" name="username"
+               placeholder="First Name"
+               class="w-full border rounded-full px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none" required>
+
+        <input type="email" [(ngModel)]="user.email" name="email"
+               placeholder="Email"
+               class="w-full border rounded-full px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none" required>
+
+        <input type="password" [(ngModel)]="user.password" name="password"
+               placeholder="Password"
+               class="w-full border rounded-full px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none" required>
+
+        <button type="submit"
+                class="w-full bg-gray-800 text-white font-semibold py-2 rounded-full hover:bg-gray-900 transition">
+          SIGN UP
+        </button>
+      </form>
+
+      <p class="text-center text-sm mt-4 text-gray-600">
+        Already have an account?
+        <a routerLink="/login" class="text-blue-600 hover:underline">Login</a>
+      </p>
+
+      <p *ngIf="successMessage" class="text-green-600 mt-3 text-center">{{ successMessage }}</p>
+      <p *ngIf="errorMessage" class="text-red-600 mt-3 text-center">{{ errorMessage }}</p>
+    </div>
+  </div>
+</div>
