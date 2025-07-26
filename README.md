@@ -1,6 +1,30 @@
-# MyAngularApp
+# 🛒 Angular Product Gallery Demo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.2.
+## 📝 Project Overview
+This is a simple Angular e-commerce demo project that allows users to:
+- Browse products
+- View product details
+- Add items to the cart
+- Sign up and log in using FakeStoreAPI
+
+It includes authentication, cart management, and a responsive design built with TailwindCSS.
+
+---
+
+## 🎥 Screenshots or Demo
+### 🔗 Live Demo / Video
+[🎥 Watch Demo](https://drive.google.com/file/d/1vpgyIUtCNPF-ncif4UzcZvGzSTp1b21t/view?usp=sharing)
+
+---
+
+## 🧱 Tech Stack Used
+- **Angular 17** (Standalone components)
+- **TailwindCSS**
+- **TypeScript**
+- **RxJS**
+- **FakeStoreAPI**
+- **OBS** (for demo recording)
+
 
 ## Development server
 
